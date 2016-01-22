@@ -1,12 +1,12 @@
 {
-  "name": "babel-starter-kit",
-  "version": "0.0.0",
-  "description": "A project template for authoring and publishing JavaScript libraries",
-  "homepage": "http://www.kriasoft.com/babel-starter-kit",
-  "repository": "kriasoft/babel-starter-kit",
-  "author": "Kriasoft <support@kriasoft.com> (http://www.kriasoft.com)",
+  "name": "redux-reducer",
+  "version": "0.0.1",
+  "description": "A javascript library to simplify writing redux reducers",
+  "homepage": "http://chetanism.github.io/redux-reducer",
+  "repository": "chetanism/redux-reducer",
+  "author": "Chetan Verma <verma.chetan@gmail.com> (https://github.com/chetanism)",
   "contributors": [
-    "Konstantin Tarkus <hello@tarkus.me>"
+    "Chetan Verma <verma.chetan@gmail.com>"
   ],
   "license": "MIT",
   "main": "lib/index.js",
