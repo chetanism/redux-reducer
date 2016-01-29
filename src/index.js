@@ -3,6 +3,7 @@
  * Copyright (c) Konstantin Tarkus <hello@tarkus.me> | The MIT License
  */
 
-import Greeting from './Greeting.js';
+import Reducer from './Reducer';
+import CombineReducers from './CombineReducers';
 
-export default { Greeting };
+export default { Reducer, CombineReducers };
