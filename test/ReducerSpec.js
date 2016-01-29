@@ -109,12 +109,27 @@ describe('Reducer', () => {
       expect(currentState).to.be.equal(2);
       currentState = myReducer.reduce(currentState, {myType: 'SOME_ACTION_1'});
       expect(currentState).to.be.equal(6);
-
-
     });
-
   });
 
+  describe('#forNoMatch', () => {
+    it('should reduce with before, after, no-match handlers correctly', () => {
+      const myReducer = new Reducer(2)
+        .on('SOME_ACTION', (state) => (state * 2))
+        .forNoMatch((state) => (state + 2))
+        .beforeAll((state) => (state * 3))
+        .afterAll((state) => (state + 4));
+
+      let currentState = myReducer.reduce(null);
+      expect(currentState).to.be.equal(2);
+
+      currentState = myReducer.reduce(currentState, { type: 'SOME_ACTION' });
+      expect(currentState).to.be.equal(16);
+
+      currentState = myReducer.reduce(currentState, { type: 'SOME_OTHER_ACTION' });
+      expect(currentState).to.be.equal(18);
+    });
+  });
 
   describe('#reduce', () => {
     it('should reduce for known actions', () => {
@@ -123,23 +138,21 @@ describe('Reducer', () => {
         world: ''
       };
 
-      const myReducer = new Reducer(state);
-      myReducer.on('HELLO_SAYS_WORLD', (state) => ({
-          hello: 'world',
-          world: state.world
-        })
-      );
-
-      myReducer.on('HELLO_SAYS_WORLD', (state) => ({
-          hello: state.hello + 'world',
-          world: state.world
-        })
-      );
-
-      myReducer.on('WORLD_SAYS_HELLO', (state) => ({
-        hello: state.hello,
-        world: 'hello'
-      }));
+      const myReducer = new Reducer(state)
+        .on('HELLO_SAYS_WORLD', (state) => ({
+            hello: 'world',
+            world: state.world
+          })
+        )
+        .on('HELLO_SAYS_WORLD', (state) => ({
+            hello: state.hello + 'world',
+            world: state.world
+          })
+        )
+        .on('WORLD_SAYS_HELLO', (state) => ({
+          hello: state.hello,
+          world: 'hello'
+        }));
 
       expect(myReducer.initialState).to.be.deep.equal(state);
 
