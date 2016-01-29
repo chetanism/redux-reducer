@@ -77,7 +77,7 @@ class Reducer {
   }
 
   reduce(state, action) {
-    if(state === null || state === undefined) {
+    if (state === null || state === undefined) {
       return this.initialState;
     }
 

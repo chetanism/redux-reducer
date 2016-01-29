@@ -19,7 +19,7 @@ const src = async () => {
 
   for (const file of files) {
     const source = await fs.readFile('src/' + file);
-    const result = babel.transform(source);
+    const result = babel.transform(source, { stage: 0 });
     await fs.writeFile('lib/' + file, result.code);
     await fs.writeFile('lib/' + file.substr(0, file.length - 3) + '.babel.js', source);
   }
