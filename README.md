@@ -1,6 +1,8 @@
 # Redux Reducer
 JavaScript library to simplify writing [redux](https://github.com/rackt/redux) reducers
 
+[![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/redux-reducer2)
+
 ## Why redux-reducer?
 [Redux](https://github.com/rackt/redux) is awesome!
 However, as you go through [examples](http://rackt.org/redux/docs/introduction/Examples.html), 
