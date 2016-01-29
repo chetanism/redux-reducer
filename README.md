@@ -11,6 +11,9 @@ This library is intended to provide a little more object-oriented approach to wr
   add/remove reducers dynamically. Although you must not require this under normal use cases, but if you do, 
   you can.
   
+## Installation
+npm install redux-reducer2 [--save]
+  
 ## Usage
 
 ### A simple usage

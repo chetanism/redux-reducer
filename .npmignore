@@ -6,7 +6,6 @@
 .gitignore
 .npmignore
 .travis.xml
-build
-docs
 test
 tools
+src
