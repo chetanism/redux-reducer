@@ -85,12 +85,21 @@ class Reducer {
 
     const mapActionType = this.mapActionType || Reducer.getActionType;
     const actionType = mapActionType(action);
+    const notAllowedActions = [
+      Reducer.BEFORE_ALL_ACTIONS,
+      Reducer.AFTER_ALL_ACTIONS,
+      Reducer.NO_MATCH,
+    ];
+
+    if (notAllowedActions.indexOf(actionType) !== -1) {
+      return currentState;
+    }
 
     const handlerList = this.getHandlerList(actionType);
 
     if (handlerList.length > 0) {
       const beforeHandlerList = this.getHandlerList(Reducer.BEFORE_ALL_ACTIONS);
-      const afterHandlerList  = this.getHandlerList(Reducer.AFTER_ALL_ACTIONS);
+      const afterHandlerList = this.getHandlerList(Reducer.AFTER_ALL_ACTIONS);
 
       currentState = Reducer.reduceWithHandlers(currentState, action, beforeHandlerList);
       currentState = Reducer.reduceWithHandlers(currentState, action, handlerList);

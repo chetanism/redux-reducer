@@ -10,7 +10,7 @@ However, as you go through [examples](http://rackt.org/redux/docs/introduction/E
  
 This library is intended to provide a little more object-oriented approach to write reducers. All it does is
   provide Reducer and CombineReducers classes to get rid of switch-case. Additionally it also lets you 
-  add/remove reducers dynamically. Although you must not require this under normal use cases, but if you do, 
+  modify reducers dynamically. Although you should not require this under normal use cases, but if you do, 
   you can.
   
 ## Installation
@@ -115,8 +115,10 @@ myReducer.forNoMatch((state) => (state + 2));
 myReducer.on(Reducer.NO_MATCH, (state) => (state + 2));
 ```
 Similarly, beforeAll() is mapped to Reducer.BEFORE_ALL_ACTIONS and afterAll() to Reducer.AFTER_ALL_ACTIONS.
-
 As with any other action, more handlers can be attached or removed for these actions.
+
+*Note: NO_MATCH, BEFORE_ALL_ACTIONS and AFTER_ALL_ACTIONS are special action types,
+Reducers will not respond to actions triggered with these types.*  
 
 #### Action type
 By default, redux-reducer expects actions to be [FSA](https://github.com/acdlite/flux-standard-action) and looks for action.type

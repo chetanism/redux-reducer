@@ -168,6 +168,24 @@ describe('Reducer', () => {
         .that.equals('hello');
     });
 
+    it('should not reduce for special actions', () => {
+      const myReducer = new Reducer(2)
+        .on('SOME_ACTION', (state) => (state * 2))
+        .forNoMatch((state) => (state + 2))
+        .beforeAll((state) => (state * 3))
+        .afterAll((state) => (state + 4));
+
+      let currentState = myReducer.reduce(null);
+
+      currentState = myReducer.reduce(currentState, { type: Reducer.NO_MATCH });
+      expect(currentState).to.be.equal(2);
+
+      currentState = myReducer.reduce(currentState, { type: Reducer.BEFORE_ALL_ACTIONS });
+      expect(currentState).to.be.equal(2);
+
+      currentState = myReducer.reduce(currentState, { type: Reducer.AFTER_ALL_ACTIONS });
+      expect(currentState).to.be.equal(2);
+    });
 
     it('should not reduce for unknown actions', () => {
       const state = {

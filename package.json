@@ -39,6 +39,12 @@
     "postcss-nested": "^1.0.0",
     "sinon": "^1.16.1"
   },
+  "keywords": [
+    "redux",
+    "reducer",
+    "redux-reducer",
+    "redux-reducer2"
+  ],
   "scripts": {
     "lint": "eslint src docs/js tools",
     "test": "mocha test --compilers js:babel/register",
