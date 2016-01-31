@@ -1,6 +1,6 @@
 {
   "name": "redux-reducer2",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A javascript library to simplify writing redux reducers",
   "homepage": "http://chetanism.github.io/redux-reducer",
   "repository": "chetanism/redux-reducer",
